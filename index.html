@@ -13,7 +13,7 @@
 <div class="shard" aria-hidden="true"></div>
 <h1>Obsidian</h1>
 <p class="lead">A free Android music player with downloads to your phone and playlists you can share with friends.</p>
-<p><a class="btn" href="https://github.com/brightonjosephkbj/Music/releases/latest">Download for Android</a></p>
+<p><a class="btn" href="https://github.com/brightonjosephkbj/Music/releases/latest" id="dl">Download for Android</a></p>
 <p class="note">Free. Android only.</p>
 </section>
 
@@ -29,10 +29,13 @@
 
 <h2>Questions</h2>
 <details><summary>How do I install it?</summary>
-<ol><li>Tap Download for Android.</li><li>On the page that opens, tap the .apk file under Assets.</li><li>If Android asks, allow installs from your browser.</li><li>Open the file and tap Install.</li></ol></details>
+<ol><li>Tap Download for Android.</li><li>When the download finishes, open the file.</li><li>If Android asks, allow installs from your browser.</li><li>Tap Install.</li></ol></details>
 <details><summary>Is it free?</summary><p>Yes. Obsidian is free to use today.</p></details>
 <details><summary>Who makes it?</summary><p>Obsidian is built by B24 Technologies in Uganda.</p></details>
 </main>
 <footer><span>B24 Technologies, 2026</span><a href="privacy.html">Privacy policy</a></footer>
+<script>
+fetch("https://api.github.com/repos/brightonjosephkbj/Music/releases/latest").then(function(r){return r.json()}).then(function(d){var a=(d.assets||[]).find(function(x){return x.name.endsWith(".apk")});if(a){document.getElementById("dl").href=a.browser_download_url;var n=document.querySelector(".note");if(n)n.textContent="Free. Android only. Version "+d.tag_name+"."}}).catch(function(){});
+</script>
 </body>
 </html>
