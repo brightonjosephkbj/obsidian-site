@@ -1,0 +1,35 @@
+:root{--bg:#15171e;--panel:#1d2029;--edge:#333747;--text:#eceef3;--mute:#a0a5b5;--v:#7c6cff;--t:#2fd0c0;--out:cubic-bezier(.2,.7,.2,1)}
+@media (prefers-color-scheme:light){:root{--bg:#f3f4f8;--panel:#e6e8ef;--edge:#c9ccd8;--text:#171922;--mute:#555a6b}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 "Avenir Next","Segoe UI",system-ui,sans-serif}
+main,footer{max-width:760px;margin:0 auto;padding:0 22px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--t);outline-offset:3px;border-radius:4px}
+.hero{display:grid;gap:28px;padding:56px 0 40px}
+.shard{width:150px;height:170px;clip-path:polygon(50% 0,100% 30%,86% 100%,18% 90%,0 36%);background:conic-gradient(from 210deg at 42% 58%,#0c0d12,#2b2e40,#0c0d12 28%,#3d4160 44%,#0c0d12 60%,#4a3fb0 76%,#1c7d76 86%,#0c0d12)}
+h1{font-size:clamp(46px,13vw,84px);line-height:1;letter-spacing:-.03em;margin:0;font-weight:700}
+.lead{color:var(--mute);max-width:34ch;margin:0;font-size:19px}
+.btn{display:inline-block;background:var(--text);color:var(--bg);text-decoration:none;font-weight:650;padding:14px 26px;border-radius:999px;transition:transform .15s var(--out)}
+.btn:active{transform:scale(.97)}
+.note{color:var(--mute);font-size:15px;margin:0}
+.hero>*{animation:in .22s var(--out) both}
+.hero>:nth-child(1){animation-delay:0s}.hero>:nth-child(2){animation-delay:30ms}.hero>:nth-child(3){animation-delay:60ms}.hero>:nth-child(4){animation-delay:90ms}.hero>:nth-child(5){animation-delay:120ms}
+.hero>.shard{animation-name:pop}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:none}}
+h2{font-size:22px;margin:40px 0 8px;letter-spacing:-.01em}
+ul.f{list-style:none;margin:0;padding:0}
+ul.f li{border-top:1px solid var(--edge);padding:16px 0}
+ul.f b{display:block}
+ul.f span{color:var(--mute)}
+details{border-top:1px solid var(--edge);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--edge)}
+summary{cursor:pointer;font-weight:600}
+details[open]>:not(summary){animation:in .18s var(--out) both}
+details p,details ol{color:var(--mute);margin:10px 0 0}
+details ol{padding-left:20px}
+footer{padding:44px 22px 56px;color:var(--mute);font-size:15px;display:flex;gap:18px;flex-wrap:wrap}
+.doc{padding:48px 0 0}.doc h1{font-size:40px;margin-bottom:6px}.doc p,.doc li{color:var(--mute)}.doc h2{color:var(--text)}
+@media (min-width:700px){.hero{grid-template-columns:1fr auto;align-items:end}.hero>.shard{grid-column:2;grid-row:1/5;width:200px;height:226px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
